@@ -1,7 +1,7 @@
 import Foundation
 import Capacitor
 
-@objc public class Filesystem: NSObject {
+@objc class Filesystem: NSObject {
 
     public enum FilesystemError: LocalizedError {
         case noParentFolder, noSave, failEncode, noAppend, notEmpty
@@ -22,7 +22,7 @@ import Capacitor
         }
     }
 
-    public typealias ProgressEmitter = (_ bytes: Int64, _ contentLength: Int64) -> Void
+    typealias ProgressEmitter = (_ bytes: Int64, _ contentLength: Int64) -> Void
 
     public func readFile(at fileUrl: URL, with encoding: String?) throws -> String {
         fileUrl.startAccessingSecurityScopedResource()
